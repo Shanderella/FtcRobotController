@@ -19,7 +19,7 @@ import org.firstinspires.ftc.teamcode.AUTO.Subsystem.Intake;
 import java.util.List;
 
 @Config
-@Autonomous(name = "DECODEingAuto", group = "Autonomous")
+@Autonomous(name = "BlueFarSide", group = "Autonomous")
 public class BlueFarSide extends LinearOpMode {
     private Limelight3A limelight;
     private static final int GPP = 21;
@@ -75,7 +75,7 @@ public class BlueFarSide extends LinearOpMode {
                                 // ===== FIRST PART =====
                                 new ParallelAction(
                                         drive.actionBuilder(initialPose)
-                                                .lineToX(-38)
+                                                .lineToX(-43)
                                                 .turn(Math.toRadians(45))
                                                 .build(),
                                         new ShooterActions.SpinUpUntilReady(shooter),
@@ -89,15 +89,16 @@ public class BlueFarSide extends LinearOpMode {
                                 new IntakeActions.pushUp(intake),
                                 new ShooterActions.HoldSpinForTime(shooter, 2),
                                 new ShooterActions.FireOnceTimed(shooter),
+                                new ShooterActions.FireOnceTimed(shooter),
                                 new ShooterActions.Stop(shooter),
 
                                 // ===== SECOND PART =====
                                 new ParallelAction(
-                                        drive.actionBuilder(new Pose2d(-38, -15, Math.toRadians(45)))
+                                        drive.actionBuilder(new Pose2d(-43, -15, Math.toRadians(45)))
                                                 .turn(Math.toRadians(-45))
                                                 .strafeToConstantHeading(new Vector2d(-30, -15))
                                                 .turn(Math.toRadians(90))
-                                                .lineToY(-40)
+                                                .lineToY(-35)
                                                 .build(),
                                         new IntakeActions.takeIn(intake)
                                 ),
@@ -105,8 +106,7 @@ public class BlueFarSide extends LinearOpMode {
 
                                 new ParallelAction(
                                     drive.actionBuilder(new Pose2d(-30, -40, Math.toRadians(90)))
-                                        .setTangent(Math.toRadians(45))
-                                        .splineTo(new Vector2d(-38, -15), Math.PI / 2)
+                                        .strafeToLinearHeading(new Vector2d(-43, -20), Math.toRadians(50))
                                             .build(),
                                         new ShooterActions.SpinUpUntilReady(shooter),
                                         new ShooterActions.HoldSpinForTime(shooter, 2),
@@ -121,8 +121,8 @@ public class BlueFarSide extends LinearOpMode {
                                 new ShooterActions.Stop(shooter),
 
                             new ParallelAction(
-                        drive.actionBuilder(new Pose2d(-38, -15, Math.toRadians(45)))
-                                .strafeToLinearHeading(new Vector2d(5,-15), Math.toRadians(150))
+                        drive.actionBuilder(new Pose2d(-43, -20, Math.toRadians(45)))
+                                .strafeToLinearHeading(new Vector2d(-20,-15), Math.toRadians(150))
                                 .build())
                         )
                 );
@@ -137,7 +137,7 @@ public class BlueFarSide extends LinearOpMode {
                               // ===== FIRST PART =====
                               new ParallelAction(
                                       drive.actionBuilder(initialPose)
-                                              .lineToX(-38)
+                                              .lineToX(-43)
                                               .turn(Math.toRadians(45))
                                               .build(),
                                       new ShooterActions.SpinUpUntilReady(shooter),
@@ -155,11 +155,11 @@ public class BlueFarSide extends LinearOpMode {
 
                               // ===== SECOND PART =====
                               new ParallelAction(
-                                      drive.actionBuilder(new Pose2d(-38, -15, Math.toRadians(45)))
+                                      drive.actionBuilder(new Pose2d(-43, -15, Math.toRadians(45)))
                                               .turn(Math.toRadians(-45))
                                               .strafeToConstantHeading(new Vector2d(0, -15))
                                               .turn(Math.toRadians(90))
-                                              .lineToY(-40)
+                                              .lineToY(-38)
                                               .build(),
                                       new IntakeActions.takeIn(intake)
                               ),
@@ -167,8 +167,8 @@ public class BlueFarSide extends LinearOpMode {
                             // ===== THIRD PART =====
                               new ParallelAction(
                                       drive.actionBuilder(new Pose2d(0, -40, Math.toRadians(90)))
-                                              .setTangent(Math.toRadians(45))
-                                              .splineTo(new Vector2d(-38, -15), Math.PI / 2)
+                                              .lineToY(-20)
+                                              .strafeToLinearHeading(new Vector2d(-43, -20), Math.toRadians(50))
                                               .build(),
                                       new ShooterActions.SpinUpUntilReady(shooter),
                                       new ShooterActions.HoldSpinForTime(shooter, 2),
@@ -183,8 +183,8 @@ public class BlueFarSide extends LinearOpMode {
                               new ShooterActions.Stop(shooter),
 
                               new ParallelAction(
-                                      drive.actionBuilder(new Pose2d(-38, -15, Math.toRadians(45)))
-                                              .strafeToLinearHeading(new Vector2d(5,-15), Math.toRadians(150))
+                                      drive.actionBuilder(new Pose2d(-43, -15, Math.toRadians(40)))
+                                              .strafeToLinearHeading(new Vector2d(-20,-15), Math.toRadians(40))
                                               .build())
                       )
                  );
@@ -198,7 +198,7 @@ public class BlueFarSide extends LinearOpMode {
                                             // ===== FIRST PART =====
                                             new ParallelAction(
                                                     drive.actionBuilder(initialPose)
-                                                            .lineToX(-38)
+                                                            .lineToX(-43)
                                                             .turn(Math.toRadians(45))
                                                             .build(),
                                                     new ShooterActions.SpinUpUntilReady(shooter),
@@ -216,7 +216,7 @@ public class BlueFarSide extends LinearOpMode {
 
                                             // ===== SECOND PART =====
                                             new ParallelAction(
-                                                    drive.actionBuilder(new Pose2d(-38, -15, Math.toRadians(45)))
+                                                    drive.actionBuilder(new Pose2d(-43, -15, Math.toRadians(45)))
                                                             .turn(Math.toRadians(-45))
                                                             .strafeToConstantHeading(new Vector2d(30, -15))
                                                             .turn(Math.toRadians(90))
@@ -228,8 +228,8 @@ public class BlueFarSide extends LinearOpMode {
                                             // ===== THIRD PART =====
                                             new ParallelAction(
                                                     drive.actionBuilder(new Pose2d(30, -40, Math.toRadians(90)))
-                                                            .setTangent(Math.toRadians(45))
-                                                            .splineTo(new Vector2d(-38, -15), Math.PI / 2)
+                                                            .lineToY(-20)
+                                                            .strafeToLinearHeading(new Vector2d(-43, -20), Math.toRadians(50))
                                                             .build(),
                                                     new ShooterActions.SpinUpUntilReady(shooter),
                                                     new ShooterActions.HoldSpinForTime(shooter, 2),
@@ -244,8 +244,8 @@ public class BlueFarSide extends LinearOpMode {
                                             new ShooterActions.Stop(shooter),
 
                                             new ParallelAction(
-                                                    drive.actionBuilder(new Pose2d(-38, -15, Math.toRadians(45)))
-                                                            .strafeToLinearHeading(new Vector2d(5,-15), Math.toRadians(150))
+                                                    drive.actionBuilder(new Pose2d(-43, -15, Math.toRadians(40)))
+                                                            .strafeToLinearHeading(new Vector2d(-20,-15), Math.toRadians(40))
                                                             .build())
                                     )
                             );
